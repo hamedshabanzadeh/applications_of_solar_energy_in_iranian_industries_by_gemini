@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اینفوگرافیک: انرژی خورشیدی در صنایع ایران</title>
+    <!-- Chosen Palette: Vibrant Solar Flare -->
+    <!-- Narrative & Structure Plan: The infographic follows a compelling top-down narrative. It begins with a hook showing Iran's vast potential versus the current energy reality. It then flows into the core industrial applications, highlighting major projects. A central section visualizes the key conflict between government policies (drivers) and structural challenges (barriers) in a SWOT-like manner. The story then shifts to domestic pride with technological innovations, and concludes with a look at the ambitious future goals and the path forward. This structure guides the user from the "why" to the "what," "how," and "what's next" in a logical, visually engaging sequence. -->
+    <!-- Visualization & Content Choices: 
+        - Potential vs. Goal (Data Point) -> Compare (Goal) -> Horizontal Bar Chart (Viz/Method) -> Starkly visualizes the ambition gap, making it the central opening insight (Justification) -> Chart.js/Canvas (Method). CONFIRMING NO SVG.
+        - Industrial Applications (Data Point) -> Organize/Inform (Goal) -> Icon-driven Cards (Viz/Method) -> Segments complex information into digestible, visually distinct blocks for key sectors like steel and petrochemicals (Justification) -> HTML/Tailwind with Unicode Icons (Method). CONFIRMING NO SVG.
+        - Policies vs. Challenges (Data Point) -> Compare (Goal) -> Two-column layout (Viz/Method) -> Creates a clear visual dichotomy between positive drivers and negative barriers, a classic infographic technique for illustrating conflict/balance (Justification) -> HTML/Tailwind with Unicode Icons (Method). CONFIRMING NO SVG.
+        - Domestic Production Chain (Data Point) -> Organize/Process (Goal) -> HTML/CSS Flowchart (Viz/Method) -> Visually demonstrates the 'Made in Iran' capability from raw material to final product without complex charts or forbidden graphics (Justification) -> HTML/Tailwind (Method). CONFIRMING NO SVG.
+        - Renewable Mix (Data Point) -> Compare Composition (Goal) -> Donut Chart (Viz/Method) -> Standard, effective way to show solar energy's dominant share within the renewables sector (Justification) -> Chart.js/Canvas (Method). CONFIRMING NO SVG.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #F8F9FA;
+            color: #263238;
+        }
+        .vazir-heavy { font-weight: 800; }
+        .vazir-bold { font-weight: 700; }
+        .vazir-normal { font-weight: 400; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 250px;
+            max-height: 300px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <!-- Section 1: The Solar Imperative -->
+        <section class="text-center my-12">
+            <h1 class="text-4xl md:text-6xl vazir-heavy text-[#0D47A1] mb-4">ایران بر مدار خورشید</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto vazir-normal">
+                ایران با داشتن پتانسیل تابشی کم‌نظیر، در آستانه یک تحول بزرگ در عرصه انرژی قرار دارد. این اینفوگرافیک، روایتی از یک فرصت طلایی برای صنعتی است که با بحران ناترازی انرژی دست و پنجه نرم می‌کند.
+            </p>
+        </section>
+
+        <section class="my-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="text-5xl mb-3">☀️</div>
+                    <p class="text-4xl vazir-bold text-[#F9A826]">۳۰۰</p>
+                    <p class="vazir-normal text-gray-700">روز آفتابی در سال</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="text-5xl mb-3">⚡️</div>
+                    <p class="text-4xl vazir-bold text-[#F9A826]">۵.۵</p>
+                    <p class="vazir-normal text-gray-700">kWh/m² میانگین تابش روزانه</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="text-5xl mb-3">📈</div>
+                    <p class="text-4xl vazir-bold text-[#F9A826]">۴ برابر</p>
+                    <p class="vazir-normal text-gray-700">رشد سالانه ظرفیت در سال گذشته</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Gap Analysis -->
+        <section class="my-20">
+            <h2 class="text-3xl md:text-4xl vazir-bold text-center text-gray-800 mb-4">شکاف میان واقعیت و رویا</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10 vazir-normal">
+                با وجود جهش اخیر در نصب نیروگاه‌های خورشیدی، فاصله قابل توجهی بین ظرفیت فعلی و اهداف بلندپروازانه دولت تا سال ۲۰۲۶ وجود دارد. این نمودار، مقیاس چالشی که ایران برای تحقق چشم‌انداز خورشیدی خود با آن روبروست را به وضوح نشان می‌دهد.
+            </p>
+            <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <div class="chart-container">
+                    <canvas id="capacityGapChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Industrial Power-Up -->
+        <section class="my-20">
+            <h2 class="text-3xl md:text-4xl vazir-bold text-center text-gray-800 mb-4">صنایع پیشگام در انقلاب خورشیدی</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10 vazir-normal">
+                صنایع انرژی‌بر ایران، تحت فشار ناترازی برق، به پیشگامان اصلی استفاده از انرژی خورشیدی تبدیل شده‌اند. پروژه‌های عظیمی در بخش‌های کلیدی اقتصاد در حال اجراست که مسیر خودکفایی انرژی را هموار می‌کند.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-[#0D47A1]">
+                    <p class="text-4xl mb-4">🔩</p>
+                    <h3 class="text-2xl vazir-bold mb-2">فولاد و معادن</h3>
+                    <p class="vazir-normal text-gray-600 mb-4">این صنعت با پروژه‌هایی نظیر نیروگاه ۶۰۰ مگاواتی فولاد مبارکه، بزرگترین گام را برای تأمین پایدار برق برداشته است.</p>
+                    <p class="text-2xl vazir-bold text-[#0D47A1]">۶۰۰ مگاوات</p>
+                    <p class="text-sm text-gray-500">پروژه فولاد مبارکه</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-[#0D47A1]">
+                    <p class="text-4xl mb-4">⛽️</p>
+                    <h3 class="text-2xl vazir-bold mb-2">نفت و پتروشیمی</h3>
+                    <p class="vazir-normal text-gray-600 mb-4">هلدینگ خلیج فارس با طرح احداث ۵۰۰۰ مگاوات نیروگاه، به دنبال استقلال کامل از شبکه برق و صرفه‌جویی عظیم در مصرف گاز است.</p>
+                    <p class="text-2xl vazir-bold text-[#0D47A1]">۵۰۰۰ مگاوات</p>
+                    <p class="text-sm text-gray-500">طرح هلدینگ خلیج فارس</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-[#0D47A1]">
+                    <p class="text-4xl mb-4">🌾</p>
+                    <h3 class="text-2xl vazir-bold mb-2">کشاورزی</h3>
+                    <p class="vazir-normal text-gray-600 mb-4">از پمپ‌های آب تا سردخانه‌ها و خشک‌کن‌ها، انرژی خورشیدی در حال دگرگون کردن کشاورزی و افزایش بهره‌وری در این بخش است.</p>
+                    <p class="text-2xl vazir-bold text-[#0D47A1]">کاهش هزینه‌ها</p>
+                    <p class="text-sm text-gray-500">و افزایش پایداری</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Policies vs. Challenges -->
+        <section class="my-20">
+            <h2 class="text-3xl md:text-4xl vazir-bold text-center text-gray-800 mb-4">دو روی سکه: مشوق‌ها در برابر موانع</h2>
+             <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10 vazir-normal">
+               مسیر توسعه انرژی خورشیدی در ایران همزمان با سیاست‌های حمایتی قدرتمند و چالش‌های ساختاری عمیق همراه است. موفقیت در این مسیر به غلبه بر موانع و تقویت مشوق‌ها بستگی دارد.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-green-50 rounded-lg p-6 border-l-4 border-green-500">
+                    <h3 class="text-2xl vazir-bold text-green-800 mb-4">✅ پیشران‌ها و سیاست‌ها</h3>
+                    <ul class="space-y-3 vazir-normal text-green-900">
+                        <li class="flex items-start"><span class="ml-3 text-2xl">📄</span><span><b>خرید تضمینی برق (PPA):</b> تضمین درآمد ۲۰ ساله برای سرمایه‌گذاران.</span></li>
+                        <li class="flex items-start"><span class="ml-3 text-2xl">🏭</span><span><b>الزام صنایع انرژی‌بر:</b> مکلف کردن صنایع برای تأمین برق خود از منابع پاک.</span></li>
+                        <li class="flex items-start"><span class="ml-3 text-2xl">💰</span><span><b>تسهیلات مالی:</b> ارائه وام‌های کم‌بهره از صندوق توسعه ملی.</span></li>
+                    </ul>
+                </div>
+                <div class="bg-red-50 rounded-lg p-6 border-l-4 border-red-500">
+                    <h3 class="text-2xl vazir-bold text-red-800 mb-4">❌ موانع و چالش‌ها</h3>
+                    <ul class="space-y-3 vazir-normal text-red-900">
+                        <li class="flex items-start"><span class="ml-3 text-2xl">💸</span><span><b>یارانه سوخت‌های فسیلی:</b> کاهش انگیزه اقتصادی برای سرمایه‌گذاری در انرژی پاک.</span></li>
+                        <li class="flex items-start"><span class="ml-3 text-2xl">🔧</span><span><b>وابستگی به واردات:</b> نوسانات ارزی و چالش‌های تأمین تجهیزات پیشرفته.</span></li>
+                        <li class="flex items-start"><span class="ml-3 text-2xl">🔌</span><span><b>زیرساخت شبکه:</b> نیاز به سرمایه‌گذاری در ذخیره‌سازی و هوشمندسازی شبکه.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 5: Domestic Innovation -->
+        <section class="my-20">
+            <h2 class="text-3xl md:text-4xl vazir-bold text-center text-gray-800 mb-4">ساخت ایران: از ویفر تا نیروگاه</h2>
+             <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10 vazir-normal">
+               همزمان با رشد پروژه‌ها، شرکت‌های دانش‌بنیان ایرانی نیز در حال تکمیل زنجیره تولید و توسعه فناوری‌های بومی هستند. این دستاوردها وابستگی به واردات را کاهش داده و آینده‌ای پایدارتر را برای صنعت خورشیدی کشور رقم می‌زنند.
+            </p>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4 md:space-x-reverse">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center text-4xl">💎</div>
+                        <p class="mt-2 vazir-bold">سیلیکون</p>
+                    </div>
+                    <div class="hidden md:block border-t-2 border-dashed border-gray-400 flex-grow"></div>
+                    <div class="md:hidden w-2 h-10 border-l-2 border-dashed border-gray-400"></div>
+                     <div class="flex flex-col items-center text-center">
+                        <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center text-4xl">💿</div>
+                        <p class="mt-2 vazir-bold">ویفر</p>
+                    </div>
+                    <div class="hidden md:block border-t-2 border-dashed border-gray-400 flex-grow"></div>
+                    <div class="md:hidden w-2 h-10 border-l-2 border-dashed border-gray-400"></div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center text-4xl">📲</div>
+                        <p class="mt-2 vazir-bold">سلول خورشیدی</p>
+                    </div>
+                    <div class="hidden md:block border-t-2 border-dashed border-gray-400 flex-grow"></div>
+                    <div class="md:hidden w-2 h-10 border-l-2 border-dashed border-gray-400"></div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center text-4xl">☀️</div>
+                        <p class="mt-2 vazir-bold">پنل خورشیدی</p>
+                    </div>
+                </div>
+                <p class="text-center mt-6 text-gray-600 vazir-normal">شرکت مانا انرژی پاک، اولین و تنها تولیدکننده کامل زنجیره ارزش پنل‌های خورشیدی در ایران است.</p>
+            </div>
+        </section>
+
+
+        <!-- Section 6: Future Outlook -->
+        <section class="my-20">
+            <h2 class="text-3xl md:text-4xl vazir-bold text-center text-gray-800 mb-4">آینده روشن است</h2>
+             <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10 vazir-normal">
+                انرژی خورشیدی با سهمی غالب، ستون اصلی سبد انرژی‌های تجدیدپذیر ایران را تشکیل می‌دهد. تحقق اهداف بزرگ آینده، نیازمند تمرکز بر همین فناوری کلیدی و رفع موانع موجود بر سر راه آن است.
+            </p>
+            <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                 <h3 class="text-xl vazir-bold text-center mb-6">سهم انرژی‌های تجدیدپذیر در ظرفیت نصب‌شده ایران</h3>
+                 <div class="chart-container" style="max-width: 450px; height: 350px;">
+                    <canvas id="renewableMixChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="text-center py-6 bg-gray-800 text-white mt-12">
+        <p class="vazir-normal">اینفوگرافیک بر اساس گزارش "کاربرد انرژی خورشیدی در صنایع ایران" - خرداد ۱۴۰۴</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const wrapLabel = (label, maxWidth) => {
+        if (typeof label !== 'string' || label.length <= maxWidth) {
+            return label;
+        }
+        const words = label.split(' ');
+        const lines = [];
+        let currentLine = '';
+        for (const word of words) {
+            if ((currentLine + ' ' + word).length > maxWidth && currentLine.length > 0) {
+                lines.push(currentLine);
+                currentLine = word;
+            } else {
+                currentLine += (currentLine.length === 0 ? '' : ' ') + word;
+            }
+        }
+        lines.push(currentLine);
+        return lines;
+    };
+    
+    const sharedTooltipConfig = {
+        plugins: {
+            tooltip: {
+                backgroundColor: '#263238',
+                titleFont: { size: 16, family: 'Vazirmatn', weight: 'bold' },
+                bodyFont: { size: 14, family: 'Vazirmatn' },
+                rtl: true,
+                callbacks: {
+                    title: function(tooltipItems) {
+                        const item = tooltipItems[0];
+                        let label = item.chart.data.labels[item.dataIndex];
+                        if (Array.isArray(label)) {
+                          return label.join(' ');
+                        } else {
+                          return label;
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    // Chart 1: Capacity Gap Chart
+    const capacityCtx = document.getElementById('capacityGapChart').getContext('2d');
+    new Chart(capacityCtx, {
+        type: 'bar',
+        data: {
+            labels: ['ظرفیت فعلی (۱۴۰۴)', 'هدف گذاری (۱۴۰۵)'],
+            datasets: [{
+                label: 'ظرفیت نصب شده (مگاوات)',
+                data: [870, 10000],
+                backgroundColor: ['#F9A826', '#0D47A1'],
+                borderColor: ['#F9A826', '#0D47A1'],
+                borderWidth: 1,
+                borderRadius: 5,
+            }]
+        },
+        options: {
+            ...sharedTooltipConfig,
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            plugins: {
+                ...sharedTooltipConfig.plugins,
+                legend: { display: false },
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    ticks: { 
+                        font: { family: 'Vazirmatn', size: 12 },
+                        callback: function(value) {
+                            return new Intl.NumberFormat('fa-IR').format(value);
+                        }
+                    }
+                },
+                y: {
+                    ticks: { font: { family: 'Vazirmatn', size: 16, weight: 'bold' } }
+                }
+            }
+        }
+    });
+
+    // Chart 2: Renewable Mix Chart
+    const mixCtx = document.getElementById('renewableMixChart').getContext('2d');
+    new Chart(mixCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['خورشیدی', 'بادی', 'آبی کوچک', ['زیست‌توده و', 'سایر موارد']],
+            datasets: [{
+                label: 'سهم از ظرفیت',
+                data: [69, 19, 8, 4],
+                backgroundColor: ['#F9A826', '#0D47A1', '#4CAF50', '#673AB7'],
+                borderColor: '#F8F9FA',
+                borderWidth: 4,
+                hoverOffset: 10
+            }]
+        },
+        options: {
+            ...sharedTooltipConfig,
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '60%',
+            plugins: {
+                ...sharedTooltipConfig.plugins,
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: { family: 'Vazirmatn', size: 14, weight: 'bold' },
+                        padding: 20
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+
+</body>
+</html>
