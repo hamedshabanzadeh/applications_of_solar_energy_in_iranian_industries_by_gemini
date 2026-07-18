@@ -11,7 +11,7 @@
 می‌توانید نسخه کامل و زنده این مقاله را در لینک زیر مشاهده کنید:
 
 
-*(https://hamedshabanzadeh.github.io/applications_of_solar_energy_in_iranian_industries_by_gemini/)*
+*https://hamedshabanzadeh.github.io/applications_of_solar_energy_in_iranian_industries_by_gemini)*
 
 ## موضوعات کلیدی مطرح شده
 
